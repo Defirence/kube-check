@@ -1,26 +1,17 @@
-#!/usr/bin/env/bash #!/usr/bin/env/zsh #!/usr/bin/env/sh
+#!/usr/bin/sh
 
 CYAN='\033[0;36m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 
-printf "${CYAN}Retrieving Kubernetes namespaces...\n"
-echo "\n"
+echo "${CYAN}Retrieving Kubernetes namespaces..."
 kubectl get ns
-sleep 1
-echo "\n"
-printf "${CYAN}Retrieving ${YELLOW}pods ${GREEN}inside all namespaces...${CYAN}\n"
+echo "${CYAN}Retrieving ${YELLOW}pods ${GREEN}inside all namespaces...${CYAN}"
 kubectl get pods --all-namespaces
-sleep 1
-echo "\n"
-printf "${CYAN}Retrieving ${YELLOW}deployments ${GREEN}inside all namespaces...${CYAN}\n"
+echo "${CYAN}Retrieving ${YELLOW}deployments ${GREEN}inside all namespaces...${CYAN}"
 kubectl get deployments --all-namespaces
-sleep 1
-echo "\n"
-printf "${CYAN}Retrieving ${YELLOW}services ${GREEN}inside all namespaces...${CYAN}\n"
+echo "${CYAN}Retrieving ${YELLOW}services ${GREEN}inside all namespaces...${CYAN}"
 kubectl get services --all-namespaces
-sleep 1
-echo "\n"
-printf "${CYAN}Retrieving ${YELLOW}clusterroles ${GREEN}inside all namespaces...${CYAN}\n"
+echo "${CYAN}Retrieving ${YELLOW}cluster-roles ${GREEN}inside all namespaces...${CYAN}"
 kubectl get clusterroles --all-namespaces
 exit 0
