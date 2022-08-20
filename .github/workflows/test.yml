@@ -12,10 +12,10 @@ jobs:
     steps:
       - name: clone-branch
         run: |
-          git clone -b dev https://github.com/Defirence/pyenv-buildtools-script.git
+          git clone -b dev https://github.com/Defirence/kube-check.git
           printf "List files and cd into repo dir on runner..."
           ls -lah
-          cd pyenv-buildtools-script
+          cd kube-check
           ls -lah
           echo $PWD
       - name: run-linux-shell-tests
@@ -23,29 +23,29 @@ jobs:
           printf "Running tests against the script on ubuntu-22.04..."
           ls -lah
           echo $PWD
-          cd pyenv-buildtools-script
-          chmod +x ./install-python-buildenv-linux.sh
-          sh ./install-python-buildenv-linux.sh
+          cd kube-check
+          chmod +x ./kube-check.sh
+          sh ./kube-check.sh
           printf "Tests run against the script are complete on ubuntu-22.04 image..."
   test-macos-shell:
     runs-on: macos-12.5
     steps:
       - name: clone-branch
         run: |
-          git clone -b dev https://github.com/Defirence/pyenv-buildtools-script.git
+          git clone -b dev https://github.com/Defirence/kube-check.git
           printf "List files and cd into repo dir on runner..."
           ls -lah
-          cd pyenv-buildtools-script
+          cd kube-check
           ls -lah
           echo $PWD
       - name: run-macos-shell-tests
         run: |
-          printf "Running tests against the script on macos-12.5..."
+          printf "Running test against the script on macos-12.5..."
           ls -lah
           echo $PWD
           brew update
           brew upgrade -y
-          cd pyenv-buildtools-script
-          chmod +x ./install-python-buildenv-macos.sh
-          sh ./install-python-buildenv-macos.sh
+          cd kube-check
+          chmod +x ./kube-check.sh
+          sh ./kube-check.sh
           printf "Tests run against the script are complete on the macos-12.5 image..."
