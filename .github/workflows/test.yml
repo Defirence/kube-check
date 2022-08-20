@@ -24,7 +24,7 @@ jobs:
           ls -lah
           echo $PWD
           cd pyenv-buildtools-script
-          chmod +x ./install-python-buildenv-linux.sh && chown ./install-python-buildenv-linux.sh
+          chmod +x ./install-python-buildenv-linux.sh
           sh ./install-python-buildenv-linux.sh
           printf "Tests run against the script are complete on ubuntu-22.04 image..."
   test-macos-shell:
@@ -46,6 +46,6 @@ jobs:
           brew update
           brew upgrade -y
           cd pyenv-buildtools-script
-          chmod +x ./install-python-buildenv-macos.sh && chown ./install-python-buildenv-macos.sh
+          chmod +x ./install-python-buildenv-macos.sh
           sh ./install-python-buildenv-macos.sh
           printf "Tests run against the script are complete on the macos-12.5 image..."
