@@ -1,0 +1,31 @@
+on:
+  push:
+    branches:
+      - 'main'
+      - 'dev'
+
+name: test-macos-shell
+
+jobs:
+  test-macos-shell:
+    runs-on: macos-12
+    steps:
+      - name: clone-branch
+        run: |
+          git clone -b dev https://github.com/Defirence/kube-check.git
+          printf "List files and cd into repo dir on runner..."
+          ls -lah
+          cd kube-check
+          ls -lah
+          echo $PWD
+      - name: run-macos-shell-tests
+        run: |
+          printf "Running test against the script on macos-12.5..."
+          ls -lah
+          echo $PWD
+          brew update
+          brew upgrade -f
+          cd kube-check
+          chmod +x ./kube-check.sh
+          sh ./kube-check.sh
+          printf "Tests run against the script are complete on the macos-12.5 image..."
