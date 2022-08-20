@@ -24,7 +24,7 @@ jobs:
           ls -lah
           echo $PWD
           brew update
-          brew upgrade -y
+          brew upgrade -f
           cd kube-check
           chmod +x ./kube-check.sh
           sh ./kube-check.sh
