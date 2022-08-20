@@ -4,29 +4,9 @@ on:
       - 'main'
       - 'dev'
 
-name: test-script
+name: test-macos-shell
 
 jobs:
-  test-linux-shell:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: clone-branch
-        run: |
-          git clone -b dev https://github.com/Defirence/kube-check.git
-          printf "List files and cd into repo dir on runner..."
-          ls -lah
-          cd kube-check
-          ls -lah
-          echo $PWD
-      - name: run-linux-shell-tests
-        run: |
-          printf "Running tests against the script on ubuntu-22.04..."
-          ls -lah
-          echo $PWD
-          cd kube-check
-          chmod +x ./kube-check.sh
-          sh ./kube-check.sh
-          printf "Tests run against the script are complete on ubuntu-22.04 image..."
   test-macos-shell:
     runs-on: macos-12.5
     steps:
